@@ -222,6 +222,8 @@ epa_summary_northeast <- epa_northeast %>% summarize(
 
 
 
+
+
 ```{r}
 epa_summary_south <- epa_south %>% summarize(
                      Power.Plants = sum(Power.Plants * Cumulative_Emissions),
