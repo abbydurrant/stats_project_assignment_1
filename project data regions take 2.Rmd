@@ -76,7 +76,7 @@ This data represents the given regions within the United States that various sta
 
 
 ```{r}
-ggplot(df_epa_region, aes(x = Emissions.2018)) + geom_histogram() + facet_wrap(~ Region) + scale_x_continuous(limits = c(0,1000000.0
+ggplot(df_epa_region, aes(x = Emissions.2018)) + geom_histogram(bins = 35, color = "white") + facet_wrap(~ Region) + scale_x_continuous(limits = c(0,1000000.0
 )) + labs(x = "2018 Emissions", y = "Number of Facilities Within an Emissions range")
 ```
 
@@ -122,9 +122,9 @@ df_epa_region <- df_epa_region %>% mutate(Cumulative_Emissions = if_else(is.na(E
 
 
 ```{r}
-ggplot(df_epa_region, aes(x = Cumulative_Emissions)) + geom_histogram(bins = 50, color = "white") + facet_wrap(~ Region) + labs(x = "Total Emissions", y = "Number of Facilities Within an Emissions range") + scale_x_continuous(limits = c(0,10000000.0
-))
+ggplot(df_epa_region, aes(x = Cumulative_Emissions, y = Region)) + geom_boxplot(alpha = .5) + labs(x = "Total Emission distribution (scale of log10", y = "Region") + scale_x_log10()
 ```
+
 
 
 
